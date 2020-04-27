@@ -12,9 +12,12 @@
 #'
 #' @return A list with: (1) - the sentiment index, (2) a tibble with the words counting, (3) a tibble with the negative words counting and (4
 #' @export
-#' @import dplyr
+#' @importFrom dplyr bind_rows
+#' @importFrom dplyr count
+#' @importFrom dplyr filter
 #' @import twitteR
 #' @importFrom  purrr map_df
+#'
 #'
 #' @examples
 #' \donttest{

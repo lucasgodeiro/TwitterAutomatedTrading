@@ -1,7 +1,7 @@
 ## code to prepare `DATASET` dataset goes here
 
 positive_dictionary <- my_dictionary[['positive_terms']]
-
+positive_dictionary[110] <- 'evolução'
 negative_dictionary <- c(my_dictionary[['negative_terms']],'VXX')
 my_dictionary <- list(positive_terms = positive_dictionary , negative_terms = negative_dictionary)
 
