@@ -9,6 +9,7 @@
 #' @param time_zone The time zone
 #' @param positive_dictionary The list of positive terms of the dictionary
 #' @param negative_dictionary The list of negative terms of the dictionarya tibble with the words counting
+#' @param sentiment_index_type The sentiment type to be used according to the dictionary, positive, negative or both. Default is both, positive and negative
 #'
 #' @return A list with: (1) - the sentiment index, (2) a tibble with the words counting, (3) a tibble with the negative words counting and (4
 #' @export
@@ -45,7 +46,8 @@ get_sentiment_tweets <- function(ntweets,
                                  time_tweet,
                                  terms_list,time_zone,
                                  positive_dictionary,
-                                 negative_dictionary){
+                                 negative_dictionary,
+                                 sentiment_index_type){
   n <- ntweets
   tm <- time_tweet*3600
 
@@ -54,6 +56,9 @@ get_sentiment_tweets <- function(ntweets,
   aaa <- tbl_df(purrr::map_df(aa, as.data.frame))
 
 
+  if(missing(sentiment_index_type)){
+    sentiment_index_type <- 'both'
+    }
 
 
 
@@ -96,8 +101,17 @@ get_sentiment_tweets <- function(ntweets,
   negative_count <- neg_fil %>%
     dplyr::count(word,sort=TRUE)
   negative=sum(negative_count$n)
-  LG_sent_score=(positive-negative)/(1 + (positive+negative) )
+
+  if(sentiment_index_type == 'positive') {
+  LG_sent_score=(positive)/(1 + (positive+negative) )
   LG_sent_score[is.na(LG_sent_score)] = 0
+  } else if(sentiment_index_type == 'negative') {
+    LG_sent_score=(negative)/(1 + (positive+negative) )
+    LG_sent_score[is.na(LG_sent_score)] = 0
+  } else {
+    LG_sent_score=(positive-negative)/(1 + (positive+negative) )
+    LG_sent_score[is.na(LG_sent_score)] = 0
+      }
 
   outputs <- list(LG_sent_score , word_count, positive_count , negative_count )
   return(outputs)

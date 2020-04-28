@@ -10,7 +10,8 @@ get_sentiment_tweets(
   terms_list,
   time_zone,
   positive_dictionary,
-  negative_dictionary
+  negative_dictionary,
+  sentiment_index_type
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ get_sentiment_tweets(
 \item{positive_dictionary}{The list of positive terms of the dictionary}
 
 \item{negative_dictionary}{The list of negative terms of the dictionarya tibble with the words counting}
+
+\item{sentiment_index_type}{The sentiment type to be used according to the dictionary, positive, negative or both. Default is both, positive and negative}
 }
 \value{
 A list with: (1) - the sentiment index, (2) a tibble with the words counting, (3) a tibble with the negative words counting and (4
