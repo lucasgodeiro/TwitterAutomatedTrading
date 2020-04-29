@@ -1,7 +1,7 @@
 #' get_sentiment_stocktwits
 #'
 #'
-#' Thi function computes the sentiment based on bullish and bearish tag from stocktwits using the last 30 twits.
+#' This function computes the sentiment based on bullish and bearish tag from stocktwits using the last 30 twits.
 #'
 #' @param stock_symbol A vector with the stocks symbols.
 #' @param path_twits The path where the Json files will be stored.

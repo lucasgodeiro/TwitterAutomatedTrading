@@ -17,5 +17,5 @@ get_sentiment_stocktwits(stock_symbol, path_twits, sentiment_index_type)
 A numeric value with the value of the sentiment index.
 }
 \description{
-Thi function computes the sentiment based on bullish and bearish tag from stocktwits using the last 30 twits.
+This function computes the sentiment based on bullish and bearish tag from stocktwits using the last 30 twits.
 }
