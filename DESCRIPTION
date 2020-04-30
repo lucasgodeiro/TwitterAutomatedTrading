@@ -11,8 +11,22 @@ Description: This Package Carries out automated trading using
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Depends: 
-    R (>= 2.10)
+Depends: R (>= 3.1.0)
 RoxygenNote: 7.1.0
 URL: https://github.com/lucasgodeiro/TwitterAutomatedTrading
 BugReports: https://github.com/lucasgodeiro/TwitterAutomatedTrading/issues
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Imports: 
+    curl,
+    dplyr,
+    jsonlite,
+    lubridate,
+    plyr,
+    purrr,
+    tibble,
+    twitteR,
+    naptime,
+    utils

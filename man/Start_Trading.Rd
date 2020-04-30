@@ -103,6 +103,8 @@ Start_Trading(
 \item{Use_Delta_Sentiment}{see trade_decision function}
 
 \item{Signal_File_Name}{The Signal File Name.}
+
+\item{past_decison}{The last trade decision.}
 }
 \value{
 The functions just activate the algorithm.
@@ -142,6 +144,7 @@ w_twitter <- 0.9
 w_stocktwits <- 0.1
 Sentiment_Index_Threshold <- 0.5
 
+
 Start_Trading(consumer_key = consumer_key,
              consumer_secret = consumer_secret,
              access_token = access_token,
@@ -173,7 +176,8 @@ Start_Trading(consumer_key = consumer_key,
              w_stocktwits = w_stocktwits,
              Sentiment_Index_Threshold = Sentiment_Index_Threshold,
              Use_Delta_Sentiment = TRUE,
-             Signal_File_Name <- Signal_File_Name)
+             Signal_File_Name <- Signal_File_Name
+             )
              }
 
 

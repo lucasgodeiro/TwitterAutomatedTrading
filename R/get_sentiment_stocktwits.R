@@ -16,7 +16,7 @@
 #' @return A numeric value with the value of the sentiment index.
 #' @export
 #'
-#' @exmples
+#' @examples
 #' \donttest{
 #' path_twits <- 'C:/Users/Cliente/Dropbox/Fun/Stocktwits/'
 #'   symbols <- c("EWZ", "SPX", "SPY", "USO")

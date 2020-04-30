@@ -1,0 +1,149 @@
+---
+title: "TwitterAutomatedTrading Package"
+author: 
+  
+  - name          : "Lucas Godeiro"
+    affiliation   : "Department of Applied Social Sciences, Federal Rural University of the Semi-arid Region – UFERSA, Brazil."
+    email         : "lucasgodeiro@ufersa.edu.br"
+
+affiliation:
+    institution   : "Department of Applied Social Sciences, Federal Rural University of the Semi-arid Region – UFERSA, Brazil."
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{TwitterAutomatedTrading}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(TwitterAutomatedTrading)
+```
+
+# Introduction
+
+The main goal of this package is to build a trade system using unstructured data from twitter and stocktwits. The package also provides as output a txt file where the user can integrate it with Metatrader 5 or another trading platform in order to execute the orders. 
+
+# How to use 
+
+In order to use the packate and doing its integration with metatrader, the user should dowload the EA News Advisor, in the file 'News_Advsor.ex5' in the EA folder, and install the EA in the Metatrader 5. Then, the user should create a folder with the name 'Common' in the folder Metaquotes, inside AppData. For example, in my computer the path is: "C:/Users/Cliente/AppData/Roaming/MetaQuotes/Terminal". 
+
+For example, the get_sentiment_tweets computes the sentiment from the tweets(remind to connect R and twitter using your API Key from twitter): 
+
+```{r get_sentiment_tweets example, eval = FALSE }
+ntweets <- 500
+time_tweet <- 6
+terms_list <- c("IBOVESPA OR bovespa OR ibov OR petroleo OR $SPX OR $SPY OR $EWZ")
+time_zone <- "Brazil/East"
+positive_dictionary <- my_dictionary[['positive_terms']]
+negative_dictionary <- my_dictionary[['negative_terms']]
+sentiment_index <- get_sentiment_tweets(ntweets = ntweets,
+terms_list = terms_list,
+time_tweet = time_tweet,
+time_zone = time_zone,
+positive_dictionary = positive_dictionary,
+negative_dictionary = negative_dictionary
+)
+
+sent_idx <- sentiment_index[[1]]
+sent_wrd <- sentiment_index[[2]]
+sent_pos <- sentiment_index[[3]]
+sent_neg <- sentiment_index[[4]]
+```
+
+Where the sentiment index $S_{t} $is defined by: 
+
+$$
+S_{t} = \frac{X_{t}^{pos} - X_{t}^{neg} }{1 + (X_{t}^{pos} + X_{t}^{neg})}
+$$
+
+$X_{t}^{pos}$ and $X_{t}^{neg}$ is the word frequency of positive and negative words. The indexes that uses only positive or negative information in the denominatar are defined as: 
+
+$$
+S_{t}^{pos} = \frac{X_{t}^{pos}  }{1 + (X_{t}^{pos} + X_{t}^{neg})}
+$$
+
+
+$$
+S_{t}^{neg} = \frac{X_{t}^{neg}  }{1 + (X_{t}^{pos} + X_{t}^{neg})}
+$$
+
+The main function of the package is the Start_Trading function. In this function for example the user can define the operation hours, whether the operation is day trade or swing trade,  wheter follow or not the sentiment index, among other options. You can check the function documentation. The the example shows how to use the function(remind to put your consumer key and access token from twitter API): 
+
+```{r Start_Trading, eval=FALSE}
+Signal_File_Name <- 'Signal.txt'
+ntweets <- 5000
+time_tweet <- 6
+terms_list <- c("IBOVESPA OR bovespa OR ibov OR petroleo OR $SPX OR $SPY OR $EWZ")
+time_zone <- "Brazil/East"
+positive_dictionary <- my_dictionary[['positive_terms']]
+negative_dictionary <- my_dictionary[['negative_terms']]
+
+path_twits <- 'C:/Users/Cliente/Dropbox/Fun/Stocktwits/'
+stock_symbol <- c("EWZ", "SPX", "SPY", "USO")
+time_zone <- "Brazil/East"
+
+consumer_key <- "your consumer_key"
+consumer_secret <- "your consumer_secret"
+access_token <- "your access token"
+access_secret <- " your access secret "
+nap_time_error <- 7.7
+path_decision <- 'C:/Users/Cliente/AppData/Roaming/MetaQuotes/Terminal/Common/Files/'
+path_twits <- 'your path'
+initial_time <- 9
+final_time <- 17
+freq_trade <- 10
+Day_Trade <- TRUE
+Operation_Hours1 <- TRUE
+start_time1 <- 9
+end_time1 <- 17
+w_twitter <- 0.9
+w_stocktwits <- 0.1
+Sentiment_Index_Threshold <- 0.5
+
+
+Start_Trading(consumer_key = consumer_key,
+             consumer_secret = consumer_secret,
+             access_token = access_token,
+             access_secret = access_secret,
+             path_decision = path_decision,
+             ntweets = ntweets,
+             terms_list = terms_list,
+             time_tweet = time_tweet,
+             time_zone = time_zone,
+             positive_dictionary = positive_dictionary,
+             negative_dictionary = negative_dictionary,
+             stock_symbol = stock_symbol,
+             path_twits = path_twits,
+             Operation_Hours1 = TRUE,
+             Operation_Hours2 = FALSE,
+             Operation_Hours3 = FALSE,
+             start_time1 = start_time1,
+             start_time2 = start_time1,
+             start_time3 = start_time1,
+             end_time1 = end_time1,
+             end_time2 = end_time1,
+             end_time3 = end_time1,
+             Day_Trade = TRUE,
+             nap_time_error = nap_time_error,
+             initial_time = initial_time,
+             final_time = final_time,
+             freq_trade = freq_trade,
+             w_twitter = w_twitter,
+             w_stocktwits = w_stocktwits,
+             Sentiment_Index_Threshold = Sentiment_Index_Threshold,
+             Use_Delta_Sentiment = TRUE,
+             Signal_File_Name <- Signal_File_Name
+             )
+```
+
+
+# Final Remarks
+
+I hope that this package helps traders and users which are interested in quantitave trading using unstructed data. The main objective is to aumotatize the tradings and link R and Metatrader 5. 

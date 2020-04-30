@@ -36,6 +36,10 @@
 #' @param Sentiment_Index_Threshold see trade_decision function.
 #' @param Use_Delta_Sentiment see trade_decision function
 #' @param Signal_File_Name The Signal File Name.
+#' @param past_decison The last trade decision.
+#'
+#' @importFrom naptime naptime
+#' @importFrom utils write.table
 #'
 #' @return The functions just activate the algorithm.
 #'
@@ -73,6 +77,7 @@
 #' w_stocktwits <- 0.1
 #' Sentiment_Index_Threshold <- 0.5
 #'
+#'
 #' Start_Trading(consumer_key = consumer_key,
 #'              consumer_secret = consumer_secret,
 #'              access_token = access_token,
@@ -104,7 +109,8 @@
 #'              w_stocktwits = w_stocktwits,
 #'              Sentiment_Index_Threshold = Sentiment_Index_Threshold,
 #'              Use_Delta_Sentiment = TRUE,
-#'              Signal_File_Name <- Signal_File_Name)
+#'              Signal_File_Name <- Signal_File_Name
+#'              )
 #'              }
 #'
 #'
@@ -320,7 +326,8 @@ Start_Trading <- function(consumer_key,
             decision <- Trade_Decision(Current_Sentiment_Index = buy_sell_t,
                                        Past_Sentiment_Index = buy_sell_t1,
                                        Use_Delta_Sentiment =  Use_Delta_Sentiment,
-                                       Sentiment_Index_Threshold = Sentiment_Index_Threshold)
+                                       Sentiment_Index_Threshold = Sentiment_Index_Threshold,
+                                       past_decision = decision)
             print('Decision')
             print(decision)
 
@@ -356,14 +363,18 @@ Start_Trading <- function(consumer_key,
         print('Some error is going on')
         decision <- Close_Position(actual_decision = decision)
 
+
+        file_decision <- paste0(path_decision, Signal_File_Name)
+
+
         decision1 = "STOP"
         write.table(decision,
-                    row.names=FALSE,quote=FALSE,col.names=FALSE,file = path_decision)
+                    row.names=FALSE,quote=FALSE,col.names=FALSE,file = file_decision)
 
         Sys.sleep(30)
 
         write.table(decision1,
-                    row.names=FALSE,quote=FALSE,col.names=FALSE,file = path_decision)
+                    row.names=FALSE,quote=FALSE,col.names=FALSE,file = file_decision)
 
         naptime(60* nap_time_error)
       }

@@ -8,7 +8,8 @@ Trade_Decision(
   Current_Sentiment_Index,
   Past_Sentiment_Index,
   Use_Delta_Sentiment,
-  Sentiment_Index_Threshold
+  Sentiment_Index_Threshold,
+  past_decision
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ Trade_Decision(
 \item{Use_Delta_Sentiment}{If True the fuction will consider the difference in the sentiment index in the decision.}
 
 \item{Sentiment_Index_Threshold}{The threshold to define if the decision will be following or against the sentiment.}
+
+\item{past_decison}{The last trade decision.}
 }
 \value{
 The vector with the decision.
@@ -36,7 +39,8 @@ Sentiment_Index_Threshold <- 0.5
 decision <- Trade_Decision(Current_Sentiment_Index = buy_sell_t,
                           Past_Sentiment_Index = buy_sell_t1,
                           Use_Delta_Sentiment =  Use_Delta_Sentiment,
-                          Sentiment_Index_Threshold = Sentiment_Index_Threshold
+                          Sentiment_Index_Threshold = Sentiment_Index_Threshold,
+                          past_decision = decision
 )
 
 
