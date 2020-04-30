@@ -21,7 +21,7 @@ Trade_Decision(
 \item{Sentiment_Index_Threshold}{The threshold to define if the decision will be following or against the sentiment.}
 }
 \value{
-
+The vector with the decision.
 }
 \description{
 This function takes as arguments the sentiment indexes and returns the decision.
