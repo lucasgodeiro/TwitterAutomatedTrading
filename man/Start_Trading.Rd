@@ -33,7 +33,10 @@ Start_Trading(
   final_time,
   freq_trade,
   w_twitter,
-  w_stocktwits
+  w_stocktwits,
+  Sentiment_Index_Threshold,
+  Use_Delta_Sentiment,
+  Signal_File_Name
 )
 }
 \arguments{
@@ -69,9 +72,37 @@ Start_Trading(
 
 \item{Operation_Hours3}{The operation hours 3 for day trade. TRUE or FALSE.}
 
+\item{start_time1}{The start time 1 for day trade.}
+
+\item{start_time2}{The start time 2 for day trade.}
+
+\item{start_time3}{The start time 3 for day trade.}
+
+\item{end_time1}{The end time 1 for day trade.}
+
+\item{end_time2}{The end time 2 for day trade.}
+
+\item{end_time3}{The end time 3 for day trade.}
+
+\item{Day_Trade}{True for Day Trade. False for Swing Trade.}
+
+\item{nap_time_error}{The time that the EA should take a nap in case of error.}
+
+\item{initial_time}{The start of operation.}
+
+\item{final_time}{The time which the position in day trade mode must be closed.}
+
+\item{freq_trade}{The time in minutes the EA must recompute the sentiment index and take a decision.}
+
 \item{w_twitter}{The weight of the twitter sentiment index.}
 
 \item{w_stocktwits}{The weight of the stocktwits sentiment index.}
+
+\item{Sentiment_Index_Threshold}{see trade_decision function.}
+
+\item{Use_Delta_Sentiment}{see trade_decision function}
+
+\item{Signal_File_Name}{The Signal File Name.}
 }
 \value{
 The functions just activate the algorithm.
@@ -80,7 +111,8 @@ The functions just activate the algorithm.
 This function starts the Algorithm and sends the ordes to txt file that will be read for the Expert Advisor in the Metatrader 5.
 }
 \examples{
-
+\donttest{
+Signal_File_Name <- 'Signal.txt'
 ntweets <- 5000
 time_tweet <- 6
 terms_list <- c("IBOVESPA OR bovespa OR ibov OR petroleo OR $SPX OR $SPY OR $EWZ")
@@ -108,6 +140,7 @@ start_time1 <- 9
 end_time1 <- 17
 w_twitter <- 0.9
 w_stocktwits <- 0.1
+Sentiment_Index_Threshold <- 0.5
 
 Start_Trading(consumer_key = consumer_key,
              consumer_secret = consumer_secret,
@@ -137,7 +170,11 @@ Start_Trading(consumer_key = consumer_key,
              final_time = final_time,
              freq_trade = freq_trade,
              w_twitter = w_twitter,
-             w_stocktwits = w_stocktwits)
+             w_stocktwits = w_stocktwits,
+             Sentiment_Index_Threshold = Sentiment_Index_Threshold,
+             Use_Delta_Sentiment = TRUE,
+             Signal_File_Name <- Signal_File_Name)
+             }
 
 
 }

@@ -20,26 +20,30 @@
 #' @param Operation_Hours1 The operation hours 1 for day trade. TRUE or FALSE.
 #' @param Operation_Hours2 The operation hours 2 for day trade. TRUE or FALSE.
 #' @param Operation_Hours3 The operation hours 3 for day trade. TRUE or FALSE.
-#' @param start_time1
-#' @param start_time2
-#' @param start_time3
-#' @param end_time1
-#' @param end_time2
-#' @param end_time3
-#' @param Day_Trade
-#' @param nap_time_error
-#' @param initial_time
-#' @param final_time
-#' @param freq_trade
+#' @param start_time1 The start time 1 for day trade.
+#' @param start_time2 The start time 2 for day trade.
+#' @param start_time3 The start time 3 for day trade.
+#' @param end_time1 The end time 1 for day trade.
+#' @param end_time2 The end time 2 for day trade.
+#' @param end_time3 The end time 3 for day trade.
+#' @param Day_Trade True for Day Trade. False for Swing Trade.
+#' @param nap_time_error The time that the EA should take a nap in case of error.
+#' @param initial_time The start of operation.
+#' @param final_time The time which the position in day trade mode must be closed.
+#' @param freq_trade The time in minutes the EA must recompute the sentiment index and take a decision.
 #' @param w_twitter The weight of the twitter sentiment index.
 #' @param w_stocktwits The weight of the stocktwits sentiment index.
+#' @param Sentiment_Index_Threshold see trade_decision function.
+#' @param Use_Delta_Sentiment see trade_decision function
+#' @param Signal_File_Name The Signal File Name.
 #'
 #' @return The functions just activate the algorithm.
 #'
 #' @export
 #'
 #' @examples
-#'
+#' \donttest{
+#' Signal_File_Name <- 'Signal.txt'
 #' ntweets <- 5000
 #' time_tweet <- 6
 #' terms_list <- c("IBOVESPA OR bovespa OR ibov OR petroleo OR $SPX OR $SPY OR $EWZ")
@@ -67,6 +71,7 @@
 #' end_time1 <- 17
 #' w_twitter <- 0.9
 #' w_stocktwits <- 0.1
+#' Sentiment_Index_Threshold <- 0.5
 #'
 #' Start_Trading(consumer_key = consumer_key,
 #'              consumer_secret = consumer_secret,
@@ -96,7 +101,11 @@
 #'              final_time = final_time,
 #'              freq_trade = freq_trade,
 #'              w_twitter = w_twitter,
-#'              w_stocktwits = w_stocktwits)
+#'              w_stocktwits = w_stocktwits,
+#'              Sentiment_Index_Threshold = Sentiment_Index_Threshold,
+#'              Use_Delta_Sentiment = TRUE,
+#'              Signal_File_Name <- Signal_File_Name)
+#'              }
 #'
 #'
 
@@ -128,7 +137,10 @@ Start_Trading <- function(consumer_key,
                           final_time,
                           freq_trade,
                           w_twitter,
-                          w_stocktwits){
+                          w_stocktwits,
+                          Sentiment_Index_Threshold,
+                          Use_Delta_Sentiment,
+                          Signal_File_Name){
 
   setup_twitter_oauth(consumer_key = consumer_key,
                       consumer_secret = consumer_secret,
@@ -174,14 +186,14 @@ Start_Trading <- function(consumer_key,
 
           twitter_index <- sentiment_index[[1]]
           print('Twitter Sentiment Index')
-          print(twitter_index)
+          print( round(twitter_index,2))
           print('Computing Stocktwits Sentiment Index')
           suppressWarnings(
             stocktwits_index <- get_sentiment_stocktwits(stock_symbol = stock_symbol,
                                                          path_twits = path_twits)
           )
           print('Stocktwits Sentiment Index')
-          print(stocktwits_index)
+          print(round(stocktwits_index,2))
 
           w_index <- (w_stocktwits * stocktwits_index) + (w_twitter * twitter_index)
           buy_sell_t <-   round(w_index ,2)
@@ -302,13 +314,15 @@ Start_Trading <- function(consumer_key,
 
 
 
-          if(op_hours == TRUE ) {
+          if( sum(op_hours) != 0 ) {
+            print("Getting Decision")
 
             decision <- Trade_Decision(Current_Sentiment_Index = buy_sell_t,
                                        Past_Sentiment_Index = buy_sell_t1,
                                        Use_Delta_Sentiment =  Use_Delta_Sentiment,
-                                       Sentiment_Index_Threshold = Sentiment_Index_Threshold
-            )
+                                       Sentiment_Index_Threshold = Sentiment_Index_Threshold)
+            print('Decision')
+            print(decision)
 
           } else  {
             print('Closing Positions')
@@ -318,7 +332,7 @@ Start_Trading <- function(consumer_key,
 
           print(decision)
 
-          file_decision <- paste0(path_decision, 'Signal.txt')
+          file_decision <- paste0(path_decision, Signal_File_Name)
 
           decision1 = "STOP"
           write.table(decision,
