@@ -36,7 +36,7 @@ A list with: (1) - the sentiment index, (2) a tibble with the words counting, (3
 This function computes the sentiment from tweets. Remind to connect with twitter using your API Key.
 }
 \examples{
-\donttest{
+\dontrun{
 ntweets <- 500
 time_tweet <- 6
 terms_list <- c("IBOVESPA OR bovespa OR ibov OR petroleo OR $SPX OR $SPY OR $EWZ")

@@ -103,8 +103,6 @@ Start_Trading(
 \item{Use_Delta_Sentiment}{see trade_decision function}
 
 \item{Signal_File_Name}{The Signal File Name.}
-
-\item{past_decison}{The last trade decision.}
 }
 \value{
 The functions just activate the algorithm.
@@ -113,7 +111,7 @@ The functions just activate the algorithm.
 This function starts the Algorithm and sends the ordes to txt file that will be read for the Expert Advisor in the Metatrader 5.
 }
 \examples{
-\donttest{
+\dontrun{
 Signal_File_Name <- 'Signal.txt'
 ntweets <- 5000
 time_tweet <- 6
@@ -176,9 +174,8 @@ Start_Trading(consumer_key = consumer_key,
              w_stocktwits = w_stocktwits,
              Sentiment_Index_Threshold = Sentiment_Index_Threshold,
              Use_Delta_Sentiment = TRUE,
-             Signal_File_Name <- Signal_File_Name
-             )
-             }
+             Signal_File_Name = Signal_File_Name)
+}
 
 
 }

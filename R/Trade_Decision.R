@@ -7,7 +7,7 @@
 #' @param Past_Sentiment_Index The sentiment index in (t-1)
 #' @param Use_Delta_Sentiment If True the fuction will consider the difference in the sentiment index in the decision.
 #' @param Sentiment_Index_Threshold The threshold to define if the decision will be following or against the sentiment.
-#' @param past_decison The last trade decision.
+#' @param past_decision The last trade decision.
 #'
 #' @return The vector with the decision.
 #' @export

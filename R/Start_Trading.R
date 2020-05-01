@@ -36,7 +36,6 @@
 #' @param Sentiment_Index_Threshold see trade_decision function.
 #' @param Use_Delta_Sentiment see trade_decision function
 #' @param Signal_File_Name The Signal File Name.
-#' @param past_decison The last trade decision.
 #'
 #' @importFrom naptime naptime
 #' @importFrom utils write.table
@@ -46,7 +45,7 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' Signal_File_Name <- 'Signal.txt'
 #' ntweets <- 5000
 #' time_tweet <- 6
@@ -109,12 +108,10 @@
 #'              w_stocktwits = w_stocktwits,
 #'              Sentiment_Index_Threshold = Sentiment_Index_Threshold,
 #'              Use_Delta_Sentiment = TRUE,
-#'              Signal_File_Name <- Signal_File_Name
-#'              )
-#'              }
+#'              Signal_File_Name = Signal_File_Name)
+#' }
 #'
 #'
-
 Start_Trading <- function(consumer_key,
                           consumer_secret,
                           access_token,

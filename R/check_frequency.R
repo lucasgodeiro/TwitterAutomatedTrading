@@ -6,20 +6,15 @@
 #' @param hours_frequency The vector containing the hours of operations.
 #' @param time_zone The time zone.
 #'
-#' @return
+#' @return A logical vector TRUE if the EA can compute the sentiment.
 #' @import lubridate
 #' @export
 #'
 #' @examples
-#'
 #' time_zone <- "Brazil/East"
 #' hour_freq <- generate_trade_frequency(9,17,10)
-#'
 #' check_freq <- check_frequency(hours_frequency = hour_freq,
 #'                              time_zone = time_zone)
-#'
-#'
-#'
 check_frequency <- function(hours_frequency,time_zone){
   current_hour <- lubridate::hour(as.POSIXlt(Sys.time(), time_zone))
   current_minute <- lubridate::minute(as.POSIXlt(Sys.time(), time_zone))

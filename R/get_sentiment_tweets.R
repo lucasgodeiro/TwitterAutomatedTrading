@@ -16,12 +16,14 @@
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr count
 #' @importFrom dplyr filter
+#' @importFrom dplyr tbl_df
 #' @import twitteR
-#' @importFrom  purrr map_df
+#' @importFrom purrr map_df
+#' @importFrom tidytext unnest_tokens
 #'
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' ntweets <- 500
 #' time_tweet <- 6
 #' terms_list <- c("IBOVESPA OR bovespa OR ibov OR petroleo OR $SPX OR $SPY OR $EWZ")
@@ -40,7 +42,7 @@
 #' sent_wrd <- sentiment_index[[2]]
 #' sent_pos <- sentiment_index[[3]]
 #' sent_neg <- sentiment_index[[4]]
-#'}
+#' }
 #'
 get_sentiment_tweets <- function(ntweets,
                                  time_tweet,
@@ -53,7 +55,7 @@ get_sentiment_tweets <- function(ntweets,
 
 
   aa <- twitteR::searchTwitter(terms_list,n=n)
-  aaa <- tbl_df(purrr::map_df(aa, as.data.frame))
+  aaa <- dplyr::tbl_df(purrr::map_df(aa, as.data.frame))
 
 
   if(missing(sentiment_index_type)){
@@ -82,7 +84,7 @@ get_sentiment_tweets <- function(ntweets,
 
 
   words <- tweets_df2 %>%
-    unnest_tokens(word,text)
+    tidytext::unnest_tokens(word,text)
   words$word <- tolower(words$word)
 
   word_count <- words %>%

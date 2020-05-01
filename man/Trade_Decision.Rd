@@ -21,7 +21,7 @@ Trade_Decision(
 
 \item{Sentiment_Index_Threshold}{The threshold to define if the decision will be following or against the sentiment.}
 
-\item{past_decison}{The last trade decision.}
+\item{past_decision}{The last trade decision.}
 }
 \value{
 The vector with the decision.

@@ -12,19 +12,14 @@ check_frequency(hours_frequency, time_zone)
 \item{time_zone}{The time zone.}
 }
 \value{
-
+A logical vector TRUE if the EA can compute the sentiment.
 }
 \description{
 This functions checks if the EA can send order to the plataform trading.
 }
 \examples{
-
 time_zone <- "Brazil/East"
 hour_freq <- generate_trade_frequency(9,17,10)
-
 check_freq <- check_frequency(hours_frequency = hour_freq,
                              time_zone = time_zone)
-
-
-
 }

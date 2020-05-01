@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # TwitterAutomatedTrading
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.com/lucasgodeiro/TwitterAutomatedTrading.svg?branch=master)](https://travis-ci.com/lucasgodeiro/TwitterAutomatedTrading)
 <!-- badges: end -->
 
 The goal of TwitterAutomatedTrading is to trading using information from tweets and to execute the orders using R and Metatrader 5. 

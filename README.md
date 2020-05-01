@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Travis build
+status](https://travis-ci.com/lucasgodeiro/TwitterAutomatedTrading.svg?branch=master)](https://travis-ci.com/lucasgodeiro/TwitterAutomatedTrading)
 <!-- badges: end -->
 
 The goal of TwitterAutomatedTrading is to trading using information from
