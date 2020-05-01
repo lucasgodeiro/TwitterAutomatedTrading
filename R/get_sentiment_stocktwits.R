@@ -17,8 +17,8 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
-#' path_twits <- 'C:/Users/Cliente/Dropbox/Fun/Stocktwits/'
+#' \dontrun{
+#' path_twits <- 'your path'
 #'   symbols <- c("EWZ", "SPX", "SPY", "USO")
 #'
 #'  stocktwits_index <- get_sentiment_stocktwits(stock_symbol = symbols,

@@ -54,7 +54,7 @@
 #' positive_dictionary <- my_dictionary[['positive_terms']]
 #' negative_dictionary <- my_dictionary[['negative_terms']]
 #'
-#' path_twits <- 'C:/Users/Cliente/Dropbox/Fun/Stocktwits/'
+#' path_twits <- 'your path'
 #' stock_symbol <- c("EWZ", "SPX", "SPY", "USO")
 #' time_zone <- "Brazil/East"
 #'
@@ -63,7 +63,7 @@
 #' access_token <- "your access token"
 #' access_secret <- " your access secret "
 #' nap_time_error <- 7.7
-#' path_decision <- 'C:/Users/Cliente/AppData/Roaming/MetaQuotes/Terminal/Common/Files/'
+#' path_decision <- 'metatrader txt file path'
 #' path_twits <- 'your path'
 #' initial_time <- 9
 #' final_time <- 17
