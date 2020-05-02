@@ -9,6 +9,8 @@
 status](https://travis-ci.com/lucasgodeiro/TwitterAutomatedTrading.svg?branch=master)](https://travis-ci.com/lucasgodeiro/TwitterAutomatedTrading)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/lucasgodeiro/TwitterAutomatedTrading?branch=master&svg=true)](https://ci.appveyor.com/project/lucasgodeiro/TwitterAutomatedTrading)
+[![Codecov test
+coverage](https://codecov.io/gh/lucasgodeiro/TwitterAutomatedTrading/branch/master/graph/badge.svg)](https://codecov.io/gh/lucasgodeiro/TwitterAutomatedTrading?branch=master)
 <!-- badges: end -->
 
 The goal of TwitterAutomatedTrading is to trading using information from

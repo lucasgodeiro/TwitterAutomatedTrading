@@ -17,7 +17,8 @@ URL: https://github.com/lucasgodeiro/TwitterAutomatedTrading
 BugReports: https://github.com/lucasgodeiro/TwitterAutomatedTrading/issues
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    covr
 VignetteBuilder: knitr
 Imports: 
     curl,
