@@ -93,7 +93,7 @@
 <div id="how-to-use" class="section level1">
 <h1 class="hasAnchor">
 <a href="#how-to-use" class="anchor"></a>How to use</h1>
-<p>In order to use the packate and doing its integration with metatrader, the user should dowload the EA News Advisor, in the file ‘News_Advsor.ex5’ in the EA folder, and install the EA in the Metatrader 5. Then, the user should create a folder with the name ‘Common’ in the folder Metaquotes, inside AppData. For example, in my computer the path is: “C:/Users/Cliente/AppData/Roaming/MetaQuotes/Terminal”.</p>
+<p>In order to use the packate and doing its integration with metatrader, the user should dowload the EA News Advisor, in the file ‘News_Advisor.ex5’ in the EA folder, and install the EA in the Metatrader 5. Then, the user should create a folder with the name ‘Common’ in the folder Metaquotes, inside AppData. For example, in my computer the path is: “C:/Users/Cliente/AppData/Roaming/MetaQuotes/Terminal”.</p>
 <p>For example, the get_sentiment_tweets computes the sentiment from the tweets(remind to connect R and twitter using your API Key from twitter):</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">ntweets</span> <span class="kw">&lt;-</span> <span class="fl">500</span>
 <span class="no">time_tweet</span> <span class="kw">&lt;-</span> <span class="fl">6</span>
@@ -113,7 +113,7 @@
 <span class="no">sent_wrd</span> <span class="kw">&lt;-</span> <span class="no">sentiment_index</span><span class="kw">[[</span><span class="fl">2</span>]]
 <span class="no">sent_pos</span> <span class="kw">&lt;-</span> <span class="no">sentiment_index</span><span class="kw">[[</span><span class="fl">3</span>]]
 <span class="no">sent_neg</span> <span class="kw">&lt;-</span> <span class="no">sentiment_index</span><span class="kw">[[</span><span class="fl">4</span>]]</pre></body></html></div>
-<p>Where the sentiment index $S_{t} $is defined by:</p>
+<p>Where the sentiment index <span class="math inline">\(S_{t}\)</span> is defined by:</p>
 <p><span class="math display">\[
 S_{t} = \frac{X_{t}^{pos} - X_{t}^{neg} }{1 + (X_{t}^{pos} + X_{t}^{neg})}
 \]</span></p>
