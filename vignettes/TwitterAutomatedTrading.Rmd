@@ -32,7 +32,7 @@ The main goal of this package is to build a trade system using unstructured data
 
 # How to use 
 
-In order to use the packate and doing its integration with metatrader, the user should dowload the EA News Advisor, in the file 'News_Advsor.ex5' in the EA folder, and install the EA in the Metatrader 5. Then, the user should create a folder with the name 'Common' in the folder Metaquotes, inside AppData. For example, in my computer the path is: "C:/Users/Cliente/AppData/Roaming/MetaQuotes/Terminal". 
+In order to use the packate and doing its integration with metatrader, the user should dowload the EA News Advisor, in the file 'News_Advisor.ex5' in the EA folder, and install the EA in the Metatrader 5. Then, the user should create a folder with the name 'Common' in the folder Metaquotes, inside AppData. For example, in my computer the path is: "C:/Users/Cliente/AppData/Roaming/MetaQuotes/Terminal". 
 
 For example, the get_sentiment_tweets computes the sentiment from the tweets(remind to connect R and twitter using your API Key from twitter): 
 
@@ -57,7 +57,7 @@ sent_pos <- sentiment_index[[3]]
 sent_neg <- sentiment_index[[4]]
 ```
 
-Where the sentiment index $S_{t} $is defined by: 
+Where the sentiment index $S_{t}$ is defined by: 
 
 $$
 S_{t} = \frac{X_{t}^{pos} - X_{t}^{neg} }{1 + (X_{t}^{pos} + X_{t}^{neg})}
