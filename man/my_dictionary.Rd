@@ -5,7 +5,7 @@
 \alias{my_dictionary}
 \title{my_dictionary}
 \format{
-A tibble with 2 components.
+A list with 2 components.
 
 \describe{
 \item{positive_terms}{The positive words.}
@@ -16,6 +16,6 @@ A tibble with 2 components.
 my_dictionary
 }
 \description{
-A simple \code{tible} containing a dictionary with positive and negative words(English and Portuguese).
+A simple \code{list} containing a dictionary with positive and negative words(English and Portuguese).
 }
 \keyword{datasets}

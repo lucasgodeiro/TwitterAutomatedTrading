@@ -139,7 +139,7 @@ Start_Trading(consumer_key = consumer_key,
              w_stocktwits = w_stocktwits,
              Sentiment_Index_Threshold = Sentiment_Index_Threshold,
              Use_Delta_Sentiment = TRUE,
-             Signal_File_Name <- Signal_File_Name
+             Signal_File_Name = Signal_File_Name
              )
 ```
 

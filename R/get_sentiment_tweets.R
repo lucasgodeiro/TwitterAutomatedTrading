@@ -20,6 +20,7 @@
 #' @import twitteR
 #' @importFrom purrr map_df
 #' @importFrom tidytext unnest_tokens
+#' @import magrittr
 #'
 #'
 #' @examples

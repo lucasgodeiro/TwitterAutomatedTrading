@@ -31,4 +31,5 @@ Imports:
     twitteR,
     naptime,
     utils,
-    tidytext
+    tidytext,
+    magrittr
