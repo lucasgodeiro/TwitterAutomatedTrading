@@ -4,10 +4,12 @@ Title: Automated Trading Using Tweets
 Version: 0.1.0
 Author: Lucas Godeiro 
 Maintainer: Lucas Godeiro <lucas.godeiro@hotmail.com>
-Description: This Package Carries out automated trading using
-    sentiment indexes computed from twitter and/or stockwits.
-    The package also integrate with Metatrader 5 in order to
-    send the order to the brokerage. 
+Description: This package carries out automated trading using
+    sentiment indexes computed from twitter and/or stockwits. 
+    The sentiment indexes are based on the ph.d. dissertation 
+    "Essays on Economic Forecasting Models" (Godeiro,2018) <https://repositorio.ufpb.br/jspui/handle/123456789/15198>
+    The package also integrates the r with the metatrader 5 in order to
+    send the buy/sell orders to the brokerage. 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

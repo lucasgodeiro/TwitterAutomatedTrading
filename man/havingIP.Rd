@@ -4,8 +4,15 @@
 \alias{havingIP}
 \title{havingIP Function}
 \usage{
-havingIP()
+havingIP(operational_system)
+}
+\arguments{
+\item{operational_system}{The operational system.}
 }
 \description{
 Function to test if the internet connection is available
+}
+\examples{
+internet <- havingIP()
+
 }
