@@ -8,8 +8,9 @@
 #' @value A logical vector TRUE if internet connection is available.
 #'
 #' @examples
+#' \dontrun{
 #' internet <- havingIP()
-#'
+#'         }
 #' @export
 #'
 #'

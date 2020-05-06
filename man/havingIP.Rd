@@ -13,6 +13,7 @@ havingIP(operational_system)
 Function to test if the internet connection is available
 }
 \examples{
+\dontrun{
 internet <- havingIP()
-
+        }
 }

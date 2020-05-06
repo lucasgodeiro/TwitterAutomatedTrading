@@ -5,6 +5,15 @@
 
 <!-- badges: start -->
 
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/TwitterAutomatedTrading)](https://cran.r-project.org/package=TwitterAutomatedTrading)
+[![metacran
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/TwitterAutomatedTrading)](https://cran.r-project.org/package=TwitterAutomatedTrading)
+[![metacran
+downloads](https://cranlogs.r-pkg.org/badges/TwitterAutomatedTrading)](https://cran.r-project.org/package=TwitterAutomatedTrading)
+[![metacran
+downloads](https://cranlogs.r-pkg.org/badges/last-day/TwitterAutomatedTrading)](https://cran.r-project.org/package=TwitterAutomatedTrading)
+[![metacran
+downloads](https://cranlogs.r-pkg.org/badges/last-week/TwitterAutomatedTrading)](https://cran.r-project.org/package=TwitterAutomatedTrading)
 [![Travis build
 status](https://travis-ci.com/lucasgodeiro/TwitterAutomatedTrading.svg?branch=master)](https://travis-ci.com/lucasgodeiro/TwitterAutomatedTrading)
 [![AppVeyor build
