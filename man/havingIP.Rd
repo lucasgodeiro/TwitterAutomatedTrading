@@ -9,6 +9,9 @@ havingIP(operational_system)
 \arguments{
 \item{operational_system}{The operational system.}
 }
+\value{
+A logical vector TRUE if internet connection is available.
+}
 \description{
 Function to test if the internet connection is available
 }

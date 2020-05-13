@@ -4,12 +4,12 @@ Title: Automated Trading Using Tweets
 Version: 0.1.0
 Author: Lucas Godeiro 
 Maintainer: Lucas Godeiro <lucas.godeiro@hotmail.com>
-Description: Provides an integration to the metatrader 5. 
+Description: Provides an integration to the 'metatrader 5'. 
     The functionalities carry out automated trading using
-    sentiment indexes computed from twitter and/or stockwits. 
+    sentiment indexes computed from 'twitter' and/or 'stockwits'. 
     The sentiment indexes are based on the ph.d. dissertation 
     "Essays on Economic Forecasting Models" (Godeiro,2018) <https://repositorio.ufpb.br/jspui/handle/123456789/15198>
-    The integration between the R and the metatrader 5 allows sending buy/sell orders to the brokerage. 
+    The integration between the 'R' and the 'metatrader 5' allows sending buy/sell orders to the brokerage. 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

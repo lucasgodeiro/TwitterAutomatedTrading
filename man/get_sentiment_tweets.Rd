@@ -37,6 +37,7 @@ This function computes the sentiment from tweets. Remind to connect with twitter
 }
 \examples{
 \dontrun{
+#Not run:
 ntweets <- 500
 time_tweet <- 6
 terms_list <- c("IBOVESPA OR bovespa OR ibov OR petroleo OR $SPX OR $SPY OR $EWZ")

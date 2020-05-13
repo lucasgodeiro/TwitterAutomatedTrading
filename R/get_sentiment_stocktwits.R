@@ -18,6 +18,7 @@
 #'
 #' @examples
 #' \dontrun{
+#' #Not run:
 #' path_twits <- 'your path'
 #'   symbols <- c("EWZ", "SPX", "SPY", "USO")
 #'

@@ -5,7 +5,7 @@
 #'
 #' @param operational_system The operational system.
 #'
-#' @value A logical vector TRUE if internet connection is available.
+#' @return A logical vector TRUE if internet connection is available.
 #'
 #' @examples
 #' \dontrun{

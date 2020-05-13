@@ -43,7 +43,7 @@ Trade_Decision <- function(Current_Sentiment_Index ,
 
   if(missing(past_decision)){
     past_decision <- 'HOLD IT NOW'
-    }
+  }
 
 
   if(Use_Delta_Sentiment == TRUE) {

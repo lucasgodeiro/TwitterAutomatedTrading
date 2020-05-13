@@ -133,7 +133,7 @@ S_{t}^{neg} = \frac{X_{t}^{neg}  }{1 + (X_{t}^{pos} + X_{t}^{neg})}
 <span class="no">positive_dictionary</span> <span class="kw">&lt;-</span> <span class="no">my_dictionary</span><span class="kw">[[</span><span class="st">'positive_terms'</span>]]
 <span class="no">negative_dictionary</span> <span class="kw">&lt;-</span> <span class="no">my_dictionary</span><span class="kw">[[</span><span class="st">'negative_terms'</span>]]
 
-<span class="no">path_twits</span> <span class="kw">&lt;-</span> <span class="st">'C:/Users/Cliente/Dropbox/Fun/Stocktwits/'</span>
+<span class="no">path_twits</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>()
 <span class="no">stock_symbol</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"EWZ"</span>, <span class="st">"SPX"</span>, <span class="st">"SPY"</span>, <span class="st">"USO"</span>)
 <span class="no">time_zone</span> <span class="kw">&lt;-</span> <span class="st">"Brazil/East"</span>
 
@@ -142,7 +142,7 @@ S_{t}^{neg} = \frac{X_{t}^{neg}  }{1 + (X_{t}^{pos} + X_{t}^{neg})}
 <span class="no">access_token</span> <span class="kw">&lt;-</span> <span class="st">"your access token"</span>
 <span class="no">access_secret</span> <span class="kw">&lt;-</span> <span class="st">" your access secret "</span>
 <span class="no">nap_time_error</span> <span class="kw">&lt;-</span> <span class="fl">7.7</span>
-<span class="no">path_decision</span> <span class="kw">&lt;-</span> <span class="st">'C:/Users/Cliente/AppData/Roaming/MetaQuotes/Terminal/Common/Files/'</span>
+<span class="no">path_decision</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>()
 <span class="no">path_twits</span> <span class="kw">&lt;-</span> <span class="st">'your path'</span>
 <span class="no">initial_time</span> <span class="kw">&lt;-</span> <span class="fl">9</span>
 <span class="no">final_time</span> <span class="kw">&lt;-</span> <span class="fl">17</span>
@@ -187,7 +187,7 @@ S_{t}^{neg} = \frac{X_{t}^{neg}  }{1 + (X_{t}^{pos} + X_{t}^{neg})}
              <span class="kw">w_stocktwits</span> <span class="kw">=</span> <span class="no">w_stocktwits</span>,
              <span class="kw">Sentiment_Index_Threshold</span> <span class="kw">=</span> <span class="no">Sentiment_Index_Threshold</span>,
              <span class="kw">Use_Delta_Sentiment</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
-             <span class="no">Signal_File_Name</span> <span class="kw">&lt;-</span> <span class="no">Signal_File_Name</span>
+             <span class="kw">Signal_File_Name</span> <span class="kw">=</span> <span class="no">Signal_File_Name</span>
              )</pre></body></html></div>
 </div>
 <div id="final-remarks" class="section level1">
