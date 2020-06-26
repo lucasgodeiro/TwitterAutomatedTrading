@@ -342,7 +342,7 @@ Start_Trading <- function(consumer_key,
           write.table(decision,
                       row.names=FALSE,quote=FALSE,col.names=FALSE,file = file_decision)
 
-          Sys.sleep(30)
+          Sys.sleep(1)
 
           write.table(decision1,
                       row.names=FALSE,quote=FALSE,col.names=FALSE,file = file_decision)
@@ -368,7 +368,7 @@ Start_Trading <- function(consumer_key,
         write.table(decision,
                     row.names=FALSE,quote=FALSE,col.names=FALSE,file = file_decision)
 
-        Sys.sleep(30)
+        Sys.sleep(1)
 
         write.table(decision1,
                     row.names=FALSE,quote=FALSE,col.names=FALSE,file = file_decision)
