@@ -3,7 +3,7 @@ title: "TwitterAutomatedTrading Package"
 author: 
   
   - name          : "Lucas Godeiro"
-    affiliation   : "Department of Applied Social Sciences, Federal Rural University of the Semi-arid Region – UFERSA, Brazil."
+    affiliation   : "Department of Applied Social Sciences, Federal Rural University of the Semi-arid Region – UFERSA, Brazil and TradersClub."
     email         : "lucasgodeiro@ufersa.edu.br"
 
 affiliation:
