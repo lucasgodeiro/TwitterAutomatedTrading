@@ -329,8 +329,11 @@ Start_Trading <- function(consumer_key,
             print(decision)
 
           } else  {
+            print('Out of Operation Hours')
+            if(Day_Trade){
             print('Closing Positions')
             decision <- Close_Position(actual_decision = decision)
+            }
           }
 
 
