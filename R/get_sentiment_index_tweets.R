@@ -152,6 +152,8 @@ get_sentiment_index_tweets <- function(ntweets,
     LG_sent_score[is.na(LG_sent_score)] = 0
   }
 
+  colnames(LG_sent_score) <- 'Twitter Sentiment Index'
+
   outputs <- list(LG_sent_score , data_words_xts, pos_fil , neg_fil )
   return(outputs)
 }

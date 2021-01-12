@@ -36,7 +36,8 @@
 #' @param Sentiment_Index_Threshold see trade_decision function.
 #' @param Use_Delta_Sentiment see trade_decision function
 #' @param Signal_File_Name The Signal File Name.
-#'
+#' @param use_sentiment_tweets TRUE to using get_sentiment_index_tweets
+#' @param freq_tweets The frequency of the twitter sentiment index in minutes.
 #' @importFrom naptime naptime
 #' @importFrom utils write.table
 #'
@@ -75,6 +76,8 @@
 #' w_twitter <- 0.9
 #' w_stocktwits <- 0.1
 #' Sentiment_Index_Threshold <- 0.5
+#' use_sentiment_tweets <- FALSE
+#' freq_tweets <- '15 mins'
 #'
 #'
 #' Start_Trading(consumer_key = consumer_key,
@@ -108,7 +111,9 @@
 #'              w_stocktwits = w_stocktwits,
 #'              Sentiment_Index_Threshold = Sentiment_Index_Threshold,
 #'              Use_Delta_Sentiment = TRUE,
-#'              Signal_File_Name = Signal_File_Name)
+#'              Signal_File_Name = Signal_File_Name,
+#'              use_sentiment_tweets = use_sentiment_tweets,
+#'              freq_tweets = freq_tweets)
 #' }
 #'
 #'
@@ -143,7 +148,9 @@ Start_Trading <- function(consumer_key,
                           w_stocktwits,
                           Sentiment_Index_Threshold,
                           Use_Delta_Sentiment,
-                          Signal_File_Name){
+                          Signal_File_Name,
+                          use_sentiment_tweets,
+                          freq_tweets){
 
   setup_twitter_oauth(consumer_key = consumer_key,
                       consumer_secret = consumer_secret,
@@ -177,6 +184,23 @@ Start_Trading <- function(consumer_key,
         if(internet == TRUE && candlestick == TRUE) {
           print('Computing Twitter Sentiment Index')
 
+
+          if(use_sentiment_tweets){
+            sentiment_index <- get_sentiment_index_tweets(ntweets = ntweets,
+                                                    terms_list = terms_list,
+                                                    time_tweet = time_tweet,
+                                                    time_zone = time_zone,
+                                                    positive_dictionary = positive_dictionary,
+                                                    negative_dictionary = negative_dictionary,
+                                                    freq_tweets = freq_tweets)
+
+            ###############################################################
+
+            twitter_index <- tail(sentiment_index[[1]],1)
+            print('Twitter Sentiment Index')
+            print( round(twitter_index,2))
+
+          } else{
           ###### Compute sentiment index #########################
           sentiment_index <- get_sentiment_tweets(ntweets = ntweets,
                                                   terms_list = terms_list,
@@ -190,6 +214,7 @@ Start_Trading <- function(consumer_key,
           twitter_index <- sentiment_index[[1]]
           print('Twitter Sentiment Index')
           print( round(twitter_index,2))
+          }
           print('Computing Stocktwits Sentiment Index')
           suppressWarnings(
             stocktwits_index <- get_sentiment_stocktwits(stock_symbol = stock_symbol,

@@ -36,7 +36,9 @@ Start_Trading(
   w_stocktwits,
   Sentiment_Index_Threshold,
   Use_Delta_Sentiment,
-  Signal_File_Name
+  Signal_File_Name,
+  use_sentiment_tweets,
+  freq_tweets
 )
 }
 \arguments{
@@ -103,6 +105,10 @@ Start_Trading(
 \item{Use_Delta_Sentiment}{see trade_decision function}
 
 \item{Signal_File_Name}{The Signal File Name.}
+
+\item{use_sentiment_tweets}{TRUE to using get_sentiment_index_tweets}
+
+\item{freq_tweets}{The frequency of the twitter sentiment index in minutes.}
 }
 \value{
 The functions just activate the algorithm.
@@ -141,6 +147,8 @@ end_time1 <- 17
 w_twitter <- 0.9
 w_stocktwits <- 0.1
 Sentiment_Index_Threshold <- 0.5
+use_sentiment_tweets <- FALSE
+freq_tweets <- '15 mins'
 
 
 Start_Trading(consumer_key = consumer_key,
@@ -174,7 +182,9 @@ Start_Trading(consumer_key = consumer_key,
              w_stocktwits = w_stocktwits,
              Sentiment_Index_Threshold = Sentiment_Index_Threshold,
              Use_Delta_Sentiment = TRUE,
-             Signal_File_Name = Signal_File_Name)
+             Signal_File_Name = Signal_File_Name,
+             use_sentiment_tweets = use_sentiment_tweets,
+             freq_tweets = freq_tweets)
 }
 
 
