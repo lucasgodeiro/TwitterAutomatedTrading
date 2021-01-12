@@ -34,4 +34,5 @@ Imports:
     naptime,
     utils,
     tidytext,
-    magrittr
+    magrittr, 
+    xts
