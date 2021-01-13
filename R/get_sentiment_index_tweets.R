@@ -15,7 +15,9 @@
 #' @importFrom dplyr count
 #' @importFrom dplyr filter
 #' @importFrom dplyr tbl_df
+#' @importFrom dplyr anti_join
 #' @import twitteR
+#' @import tidytext
 #' @importFrom purrr map_df
 #' @importFrom tidytext unnest_tokens
 #' @import magrittr
@@ -91,7 +93,7 @@ get_sentiment_index_tweets <- function(ntweets,
     unnest_tokens(word,text)
 
   words <- words %>%
-    anti_join(stop_words,by="word")
+    dplyr::anti_join(stop_words,by="word")
 
   words <- words %>%
     dplyr::filter(is.na(as.numeric(word)))
